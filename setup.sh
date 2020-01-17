@@ -2,9 +2,9 @@
 if which node >/dev/null; then
 echo -n node ok:
 node --version
-else 
+else
 echo please install node.js
-echo eg: 
+echo eg:
 echo curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
 echo bash n lts
 fi
