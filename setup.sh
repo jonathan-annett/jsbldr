@@ -16,4 +16,5 @@ echo please install uglifyjs
 echo eg:   npm install -g uglify-js
 fi
 
-npm install uglify-js jshint
+npm install
+npm install -g
