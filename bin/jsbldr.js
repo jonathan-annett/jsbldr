@@ -595,7 +595,7 @@ function clean_src (src) {
                        injectBlockWrapper: injectBlockWrapper.delimits,
                        tokenMarker : tokenMarker
                   };
-    var cleaned = src.ArraySplitCode(cleaner);
+    var cleaned = src.ArraySplit(cleaner);
 
     return cleaned ? cleaned.join('') : src;
 }
@@ -739,7 +739,8 @@ function JSHINT_check(js_src,path,sha) {
     var ignoreWarnings  = [
       'W104',
       'W098',
-      'W032'
+      'W032',
+      'W033'
     ];
 
     var jshint_prefix=ignoreWarnings.map(function(w){ return '/*jshint -'+w+'*/';}).join('');
@@ -977,10 +978,10 @@ function minifyJS( js_src ) {
 
 function save_out_file (out_file,src_text) {
     var cleaned=clean_src(src_text);
-   // var stripped = src_text.codeStripped;
+    var stripped = src_text.codeStripped;
     writeJSFileSync(out_file.replace(".js",".clean.js"),cleaned);
-   // writeJSFileSync(out_file.replace(".js",".strip.js"),stripped);
-   //writeJSFileSync(out_file.replace(".js",".ugly.js"),minifyJS(stripped));
+    writeJSFileSync(out_file.replace(".js",".strip.js"),stripped);
+    //writeJSFileSync(out_file.replace(".js",".ugly.js"),minifyJS(stripped));
    // writeJSFileSync(out_file.replace(".js",".white.js"),src_text.codeSpaced);
    // writeJSFileSync(out_file.replace(".js",".strike.js"),src_text.whiteOutComments('-','-'));
    // writeJSFileSync(out_file.replace(".js",".numbered.js"),cleaned.codeNumbered);
@@ -1101,7 +1102,7 @@ function trackEdits(
                                  } else {
                                      //dir_file.text = js_src;
                                      ///dir_file.sha256=sha;
-                                     writeJSFile(out_file,src.text,function(err,sha,stat) {
+                                     writeJSFile(out_file,src.text+src.outputDB,function(err,sha,stat) {
                                         console.log("updated",out_file,"sha=",sha,Date.now()-stat.mtime.getTime(),"msec ago");
                                         last_sha=sha;
                                         last=stat.mtime.getTime();
@@ -1166,8 +1167,7 @@ function loadFile(filename,indentLevel) {
                 includeFileName : [include_inject_file],
                 requireFileName : [require_inject]
         },
-
-        chunks = source.ArraySplitCode(pairs),
+        chunks = source.ArraySplitCode(pairs,undefined,undefined,' '),
         dist = chunks && chunks.token_distribution;
 
         if (!dist) {
@@ -1505,11 +1505,6 @@ function loadFile(filename,indentLevel) {
         var sha256 = hash_js_src(js_src);
         return ({
             filename : filename,
-                //pairs    : pairs,
-                //chunks   : chunks,
-                //tokens   : chunks.tokens,
-                //paths     : dist.paths,
-                //raw      : chunks.raw,
                 thrown   : thrown.length > 0 ? thrown : undefined,
                 text     : js_src,
                 sha256   : sha256,
@@ -1754,7 +1749,7 @@ function interactiveBuild(bld_file,out_file) {
                 bld_fn,         // filename within build_dir of main source file
                 out_file,
                 writeFileDir,
-                dir,10000);
+                dir,500);
 
         } else {
             console.log("could not save:",out_file);

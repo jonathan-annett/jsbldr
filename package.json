@@ -11,16 +11,21 @@
     "jshint": "^2.11.0",
     "uglify-js": "^3.7.2",
     "chokidar": "^3.3.1",
-    "jsextensions": "github:jonathan-annett/jsextensions#548cc90005ca0e6d41109aed44657b7f5ebad46b"
+    "jsextensions": "github:jonathan-annett/jsextensions#67462a5dbe3fb0e4361d943164dd77bb9a7cf7de"
   },
   "devDependencies": {},
-  "scripts": {},
+  "scripts": {
+    "test": "./bin/jsbldr.js build_test/input1.js build_test_out/output.js"
+  },
   "keywords": [],
-  "main": "jsbldr.js",
+  "main": "./bin/jsbldr.js",
   "name": "jsbldr",
   "repository": {
     "url": "https://github.com/jonathan-annett/jsbldr",
     "type": "git"
+  },
+  "bin": {
+    "jsbdlr": "./bin/jsbldr.js"
   },
   "version": "0.0.1"
 }
