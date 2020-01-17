@@ -1,0 +1,26 @@
+{
+  "author": {
+    "name": "Jonathan Annett",
+    "url": "http://github.com/jonathan-annett",
+    "email": "jonathan.max.annett@gmail.com"
+  },
+  "contributors": [],
+  "description": "experimental continuous linting of javascript",
+  "license": "MIT",
+  "dependencies": {
+    "jshint": "^2.11.0",
+    "uglify-js": "^3.7.2",
+    "chokidar": "^3.3.1",
+    "jsextensions": "github:jonathan-annett/jsextensions#548cc90005ca0e6d41109aed44657b7f5ebad46b"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "keywords": [],
+  "main": "jsbldr.js",
+  "name": "jsbldr",
+  "repository": {
+    "url": "https://github.com/jonathan-annett/jsbldr",
+    "type": "git"
+  },
+  "version": "0.0.1"
+}
