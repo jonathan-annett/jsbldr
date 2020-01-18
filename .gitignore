@@ -1,5 +1,6 @@
 node_modules/
-extensions.min.js
-polyfills.min.js
 .zedstate
 JSHINT_check.cache
+build_test_out/output.clean.js
+build_test_out/output.js
+package-lock.json

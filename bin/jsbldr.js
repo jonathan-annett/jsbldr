@@ -21,7 +21,7 @@ UglifyJS     = require("uglify-js"),
 ext          = require("jsextensions"),
 chokidar     = require('chokidar'),
 express      = require("express"),
-wsexpress      = require("ws-express"),
+wsexpress    = require("express-ws"),
 ace          = require('ace-express'),
 
 include_markers_file = /(?<include_marker>((var|let)(\s)+inclusions)((?<begin>Begin)|(?<end>End)|((?<pause>Pause)(\d)*)|((?<resume>Resume)(\d)*))(\s)*\;){1}/,
