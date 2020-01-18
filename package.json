@@ -12,10 +12,9 @@
         "chokidar": "^3.3.1",
         "express": "^4.17.1",
         "express-ws": "^4.0.0",
-        "jsextensions": "github:jonathan-annett/jsextensions#6cefd2304fd6b050627b14dd9e677841ca1f60cf",
+        "jsextensions": "github:jonathan-annett/jsextensions#64d7acd232d5691c16e05e1b5efbb867bfd48b53",
         "jshint": "^2.11.0",
-        "uglify-js": "^3.7.2",
-        "jspolyfills": "github:jonathan-annett/jspolyfills#5c8202ec193922269e2e212bed75ad609afd28c0"
+        "uglify-js": "^3.7.2"
     },
     "devDependencies": {},
     "scripts": {
