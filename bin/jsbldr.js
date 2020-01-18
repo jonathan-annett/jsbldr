@@ -18,9 +18,11 @@ path         = require("path"),
 zlib         = require('zlib'),
 JSHINT       = require("jshint").JSHINT,
 UglifyJS     = require("uglify-js"),
-//poly         = require("./polyfills.min.js"),
 ext          = require("jsextensions"),
 chokidar     = require('chokidar'),
+express      = require("express"),
+wsexpress      = require("ws-express"),
+ace          = require('ace-express'),
 
 include_markers_file = /(?<include_marker>((var|let)(\s)+inclusions)((?<begin>Begin)|(?<end>End)|((?<pause>Pause)(\d)*)|((?<resume>Resume)(\d)*))(\s)*\;){1}/,
 include_inject_file  = /(?<include_file>(((((((function){1}(\s)*(?<name>([a-zA-Z_][a-zA-Z0-9_]*)?)(\s)*\((\s)*(?<classic>include|inject|((include,|inject,)(?<classic_args>([a-zA-Z_][a-zA-Z0-9_,]*)?))){1}(\s)*(\))(\s)*))|(((\((\s)*(?<arrow>include|inject|((include,|inject,)(?<arrow_args>([a-zA-Z_][a-zA-Z0-9_,]*)?))){1}(\s)*(\))(\s)*)(\s)*\=\>))))(\s)*{(\s)*('|\")))(?<filename>(.*?))((\37)(\s)*;(\s)*\}))/,
@@ -31,6 +33,7 @@ tokenMarker          = /(?<omit>(\/\*(.)*\{\#\>)(?<hash>([a-z|A-Z|0-9]){8})(<\#\
 
 
 js_hash_mode = 'hex';
+
 
 function tob64(data) {
     return zlib.deflateSync(data).toString('base64');
