@@ -1,34 +1,35 @@
 {
-  "author": {
-    "name": "Jonathan Annett",
-    "url": "http://github.com/jonathan-annett",
-    "email": "jonathan.max.annett@gmail.com"
-  },
-  "contributors": [],
-  "description": "experimental continuous linting of javascript",
-  "license": "MIT",
-  "dependencies": {
-    "ace-express": "github:jonathan-annett/ace-express#9c7f512eb970939624cece689b4a33aa22d61e5c",
-    "chokidar": "^3.3.1",
-    "express": "^4.17.1",
-    "express-ws": "^4.0.0",
-    "jsextensions": "github:jonathan-annett/jsextensions#6cefd2304fd6b050627b14dd9e677841ca1f60cf",
-    "jshint": "^2.11.0",
-    "uglify-js": "^3.7.2"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "./bin/jsbldr.js build_test/input1.js build_test_out/output.js"
-  },
-  "keywords": [],
-  "main": "./bin/jsbldr.js",
-  "name": "jsbldr",
-  "repository": {
-    "url": "https://github.com/jonathan-annett/jsbldr",
-    "type": "git"
-  },
-  "bin": {
-    "jsbdlr": "./bin/jsbldr.js"
-  },
-  "version": "0.0.1"
+    "author": {
+        "name": "Jonathan Annett",
+        "url": "http://github.com/jonathan-annett",
+        "email": "jonathan.max.annett@gmail.com"
+    },
+    "contributors": [],
+    "description": "experimental continuous linting of javascript",
+    "license": "MIT",
+    "dependencies": {
+        "ace-express": "github:jonathan-annett/ace-express#9c7f512eb970939624cece689b4a33aa22d61e5c",
+        "chokidar": "^3.3.1",
+        "express": "^4.17.1",
+        "express-ws": "^4.0.0",
+        "jsextensions": "github:jonathan-annett/jsextensions#6cefd2304fd6b050627b14dd9e677841ca1f60cf",
+        "jshint": "^2.11.0",
+        "uglify-js": "^3.7.2",
+        "jspolyfills": "github:jonathan-annett/jspolyfills#5c8202ec193922269e2e212bed75ad609afd28c0"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "./bin/jsbldr.js build_test/input1.js build_test_out/output.js"
+    },
+    "keywords": [],
+    "main": "./bin/jsbldr.js",
+    "name": "jsbldr",
+    "repository": {
+        "url": "https://github.com/jonathan-annett/jsbldr",
+        "type": "git"
+    },
+    "bin": {
+        "jsbdlr": "./bin/jsbldr.js"
+    },
+    "version": "0.0.1"
 }
