@@ -1140,7 +1140,7 @@ function trackEdits(
 
                "editor window "+ev+":",
 
-               Function.args(arguments).join(",")
+               Function.args(arguments)
             );
         });
     });
