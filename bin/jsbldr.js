@@ -1136,7 +1136,12 @@ function trackEdits(
 
     ["open","close"].forEach(function(ev){
         editors.addEventListener(ev,function(){
-           console.log(["editor window "+ev+":"].concat(Function.args(arguments)).join(","));
+           console.log(
+
+               "editor window "+ev+":",
+
+               Function.args(arguments).join(",")
+            );
         });
     });
 
