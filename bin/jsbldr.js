@@ -1125,7 +1125,12 @@ function trackEdits(
 
      });
 
-
+    var app = express();
+    ace.express(app);
+    // listen for requests :)
+    var listener = app.listen(port||3000, function() {
+      console.log('goto http://'+hostname+':' + listener.address().port+"/");
+    });
 
 
 }
@@ -1748,7 +1753,7 @@ function interactiveBuild(bld_file,out_file) {
             console.log("all files linted and saved. tracking changes");
 
             trackEdits(
-                bld_dir,        // eg ./src
+bld_dir,        // eg ./src
                 bld_fn,         // filename within build_dir of main source file
                 out_file,
                 writeFileDir,
@@ -1760,6 +1765,9 @@ function interactiveBuild(bld_file,out_file) {
     } else {
         console.log("could not save dir:",bld_dir);
     }
+
+
+
 
 
 }
