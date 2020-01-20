@@ -1007,7 +1007,7 @@ function trackEdits(
     var out_dir = path.dirname(out_file);
     var out_fn  = path.basename(out_file);
 
-    console.log({build_dir,main_file,out_file,out_dir,out_fn});
+    console.log({build_dir:build_dir,main_file:main_file,out_file:out_file,out_dir:out_dir,out_fn:out_fn});
 
     var track_paths = [ build_dir ];
 
@@ -1125,7 +1125,24 @@ function trackEdits(
 
      });
 
-    var editors = ace.editMulti("dawn",[out_file,path.join(build_dir,main_file)],9000,function(){
+    var editors = ace.editMulti("cobalt",
+     
+     
+         Object.keys(dir)
+            .filter(function(fn){ return fn !==main_file; })
+               .map(function(fn) { return path.join(build_dir,fn);} )
+                .concat([
+        
+                {
+                    file:out_file,
+                    theme :'dawn'
+                },
+                {
+                    file:path.join(build_dir,main_file),
+                    theme :'chaos'
+                }
+        
+        ]),9000,function(){
 
             // this is a comment
 
