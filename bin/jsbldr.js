@@ -1125,15 +1125,14 @@ function trackEdits(
 
      });
 
-    ace.edit("dawn",out_file,9000,function(){
+    ace.editMulti("dawn",[out_file,path.join(build_dir,main_file)],9000,function(){
 
+            // this is a comment
 
-    });
-
-    ace.edit("chaos",path.join(build_dir,main_file),9001,function(){
-
+            console.log("editing some files")
 
     });
+
 
 
 }

@@ -30,6 +30,11 @@ if [[ "${UPDATED}" == "1" ]] && [[ "$1" == "push" ]]; then
 else
    if [[ "${UPDATED}" == "0" ]] && [[ "$1" == "push" ]]; then
       exit 1
+   else
+      if [[ "${UPDATED}" == "1" ]]; then
+        npm install
+        exit 0
+      fi
   fi
 fi
 
