@@ -1125,8 +1125,15 @@ function trackEdits(
 
      });
 
-    var app = express();
-    ace.edit
+    ace.edit("dawn",out_file,9000,function(){
+
+
+    });
+
+    ace.edit("chaos",path.join(build_dir,main_file),9001,function(){
+
+
+    });
 
 
 }
