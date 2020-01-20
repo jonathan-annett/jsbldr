@@ -1126,11 +1126,7 @@ function trackEdits(
      });
 
     var app = express();
-    ace.express(app);
-    // listen for requests :)
-    var listener = app.listen(port||3000, function() {
-      console.log('goto http://'+hostname+':' + listener.address().port+"/");
-    });
+    ace.edit
 
 
 }
