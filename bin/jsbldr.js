@@ -1134,8 +1134,15 @@ function trackEdits(
     });
 
 
-    console.log({editors});
+    ["open","close"].forEach(function(ev){
+        editors.addEventListener(ev,function(){
+           console.log(["editor window "+ev+":"].concat(Function.args(arguments)).join(","));
+        });
+    });
 
+    editors.addEventListener("change",function(o){
+       console.log("editor window change:",o.file,o.text.length,"chars");
+    });
 
 
 }
