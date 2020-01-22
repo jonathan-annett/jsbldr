@@ -1125,14 +1125,16 @@ function trackEdits(
 
      });
 
-    var editors = ace.editMulti("cobalt",
-     
-     
+    var editors = ace.editMulti(
+
+        "cobalt",
+
+
          Object.keys(dir)
             .filter(function(fn){ return fn !==main_file; })
                .map(function(fn) { return path.join(build_dir,fn);} )
                 .concat([
-        
+
                 {
                     file:out_file,
                     theme :'dawn'
@@ -1141,7 +1143,7 @@ function trackEdits(
                     file:path.join(build_dir,main_file),
                     theme :'chaos'
                 }
-        
+
         ]),9000,function(){
 
             // this is a comment
@@ -1150,7 +1152,7 @@ function trackEdits(
 
     });
 
-
+    /*
     ["open","close"].forEach(function(ev){
         editors.addEventListener(ev,function(){
            console.log(
@@ -1160,7 +1162,7 @@ function trackEdits(
                Function.args(arguments)
             );
         });
-    });
+    });*/
 
     editors.addEventListener("change",function(o){
        console.log("editor window change:",o.file,o.text.length,"chars");
