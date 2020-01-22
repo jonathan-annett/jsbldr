@@ -8,11 +8,11 @@
     "description": "experimental continuous linting of javascript",
     "license": "MIT",
     "dependencies": {
-        "ace-express": "github:jonathan-annett/ace-express#46ae12634efed28da7de20e4b2dcee69e8aab579",
+        "ace-express": "github:jonathan-annett/ace-express#3799adae7eb869774785265f43c718168e0167a8",
         "chokidar": "^3.3.1",
         "express": "^4.17.1",
         "express-ws": "^4.0.0",
-        "jsextensions": "github:jonathan-annett/jsextensions#cbeecd2c206df91660f6b64ba1cde75dc6c85ad0",
+        "jsextensions": "github:jonathan-annett/jsextensions#a454c88bf084925c96da3ce02c3e1e635a1d0ab2",
         "jshint": "^2.11.0",
         "uglify-js": "^3.7.2"
     },
