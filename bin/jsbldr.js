@@ -110,7 +110,7 @@ function encodeRegExp(arr,flags){
         }
     }
     var longform = {
-        ws   : "\\s",
+        ws           : "\\s",
         alphanumeric : "[a-z|0-9]",
         alphaNumeric : "[a-z|A-Z|0-9]",
         ALPHANUMERIC : "[A-Z|0-9]",
@@ -1019,7 +1019,7 @@ function trackEdits(
 
     var idle_ticker = timeout ? setTimeout(changed,timeout) : false;
     var last=false, last_sha;
-
+    var editors;
     function changed(){
         if (idle_ticker) {
             clearTimeout(idle_ticker);
@@ -1105,10 +1105,19 @@ function trackEdits(
                                  } else {
                                      //dir_file.text = js_src;
                                      ///dir_file.sha256=sha;
-                                     writeJSFile(out_file,src.text+src.outputDB,function(err,sha,stat) {
+                                     var out_file_text=src.text+src.outputDB;
+                                     writeJSFile(out_file,out_file_text,function(err,sha,stat) {
                                         console.log("updated",out_file,"sha=",sha,Date.now()-stat.mtime.getTime(),"msec ago");
                                         last_sha=sha;
                                         last=stat.mtime.getTime();
+                                        
+                                        
+                                        var ed = editors.files[out_file];
+                                        if (ed) {
+                                            ed.text = out_file_text;
+                                        } else {
+                                            console.log("no ed to update:",out_file);
+                                        }
                                      });
                                      //save_out_file (out_file,src.text);
                                  }
@@ -1125,7 +1134,7 @@ function trackEdits(
 
      });
 
-    var editors = ace.editMulti(
+    editors = ace.editMulti(
 
         "cobalt",
 
@@ -1145,8 +1154,6 @@ function trackEdits(
                 }
 
         ]),9000,function(){
-
-            // this is a comment
 
             console.log("editing some files");
 
@@ -1789,7 +1796,7 @@ function interactiveBuild(bld_file,out_file) {
             console.log("all files linted and saved. tracking changes");
 
             trackEdits(
-bld_dir,        // eg ./src
+                bld_dir,        // eg ./src
                 bld_fn,         // filename within build_dir of main source file
                 out_file,
                 writeFileDir,
