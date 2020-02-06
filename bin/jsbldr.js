@@ -1114,7 +1114,7 @@ function trackEdits(
                                         
                                         var ed = editors.files[out_file];
                                         if (ed) {
-                                            ed.text = out_file_text;
+                                            //ed.text = out_file_text;
                                         } else {
                                             console.log("no ed to update:",out_file);
                                         }
